@@ -89,20 +89,31 @@ export function ServicesSection() {
           </CardContent>
         </Card>
 
-        <div className="mt-16 text-center">
-          <Card className="inline-block border-2 border-primary shadow-lg">
-            <CardContent className="p-8">
-              <h3 className="text-xl font-bold text-foreground mb-4">
-                Visit Us At
-              </h3>
-              <p className="text-2xl font-semibold text-primary">
-                456 Ave N, Brooklyn, NY
-              </p>
-              <p className="text-muted-foreground mt-2">
-                Pastor Malory Laurent
-              </p>
-            </CardContent>
-          </Card>
+        <div className="mt-16">
+          <div className="text-center mb-8">
+            <h3 className="text-xl font-bold text-foreground mb-4">
+              Visit Us At
+            </h3>
+            <p className="text-2xl font-semibold text-primary mb-2">
+              5601 Ave N, Brooklyn, NY
+            </p>
+            <p className="text-muted-foreground">
+              Pastor Malory Laurent
+            </p>
+          </div>
+          <div className="rounded-lg overflow-hidden shadow-xl">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3029.6861789834396!2d-73.9233799!3d40.6203321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24492a3c33e65%3A0x89c24492a3c33e65!2s5601%20Ave%20N%2C%20Brooklyn%2C%20NY%2011234!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+              width="100%"
+              height="350"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Salvation Church of God Location"
+              data-testid="map-embed"
+            />
+          </div>
         </div>
       </div>
     </section>

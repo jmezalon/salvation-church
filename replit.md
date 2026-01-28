@@ -49,8 +49,18 @@ Based on church branding (royal blue, gold/yellow, white):
 ## Church Information
 - **Church Name**: Salvation Church of God
 - **Pastor**: Malory Laurent
-- **Address**: 456 Ave N, Brooklyn, NY
+- **Address**: 5601 Ave N, Brooklyn, NY
 - **Radio**: Radio Salvation (6:00 AM - 12:00 PM for Prayer)
+
+## Social Media & Resources
+- **Facebook**: https://www.facebook.com/salvationcog
+- **Instagram**: https://www.instagram.com/salvation_cog/
+- **YouTube (Church)**: https://www.youtube.com/@SalvationChurchofGod
+- **YouTube (Pastor)**: https://www.youtube.com/@pastormalorylaurent
+- **TikTok**: https://www.tiktok.com/discover/salvation-church-of-god-live-now
+- **Pastor's Books**: 
+  - https://a.co/d/aJG4QtA (English/French)
+  - https://a.co/d/144MZjN (English/French)
 
 ## Running the Project
 ```bash

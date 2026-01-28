@@ -3,11 +3,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
 import {
   MapPin,
-  Phone,
-  Mail,
   Clock,
   Send,
   CheckCircle,
@@ -107,7 +104,7 @@ export function ContactSection() {
                       Our Location
                     </h3>
                     <p className="text-muted-foreground">
-                      456 Ave N
+                      5601 Ave N
                       <br />
                       Brooklyn, NY
                     </p>
