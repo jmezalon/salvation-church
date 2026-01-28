@@ -1,76 +1,59 @@
 # Salvation Church of God Website
 
 ## Overview
+A beautiful, responsive single-page website for Salvation Church of God, located at 456 Ave N, Brooklyn, NY. The website showcases the church's mission, services, ministries, events, and provides a contact form for visitors.
 
-A church website for Salvation Church of God in Brooklyn, NY, led by Pastor Malory Laurent. The site serves as the primary online presence for the congregation, featuring information about services, ministries, events, and contact functionality. Built as a full-stack TypeScript application with a React frontend and Express backend.
+## Project Structure
 
-## User Preferences
+### Frontend (client/)
+- **Pages**: `client/src/pages/Home.tsx` - Single-page layout with all sections
+- **Components**: 
+  - `Navigation.tsx` - Fixed header with smooth scroll navigation
+  - `HeroSection.tsx` - Welcome hero with pastor image
+  - `AboutSection.tsx` - Vision, mission, and core values
+  - `ServicesSection.tsx` - Weekly service schedule and Radio Salvation info
+  - `MinistriesSection.tsx` - 8 ministry departments
+  - `EventsSection.tsx` - 2026 church calendar with 10 events
+  - `ContactSection.tsx` - Contact form with validation
+  - `Footer.tsx` - Church info and copyright
 
-Preferred communication style: Simple, everyday language.
+### Backend (server/)
+- **API Routes**: `server/routes.ts`
+  - `POST /api/contact` - Submit contact form
+  - `GET /api/contact` - Retrieve messages (admin)
+- **Storage**: `server/storage.ts` - In-memory storage for contact messages
 
-## System Architecture
+### Shared (shared/)
+- **Schema**: `shared/schema.ts` - TypeScript interfaces and Zod validation schemas
 
-### Frontend Architecture
-- **Framework**: React 18 with TypeScript
-- **Routing**: Wouter (lightweight client-side routing)
-- **Styling**: Tailwind CSS with CSS variables for theming (Royal Blue, Gold, White color scheme)
-- **UI Components**: shadcn/ui component library built on Radix UI primitives
-- **State Management**: TanStack React Query for server state
-- **Forms**: React Hook Form with Zod validation
-- **Build Tool**: Vite with path aliases (@/, @shared/, @assets/)
+## Design System
 
-### Backend Architecture
-- **Framework**: Express 5 on Node.js
-- **Language**: TypeScript (ESM modules)
-- **API Pattern**: REST endpoints under /api prefix
-- **Development**: Vite dev server integration with HMR
+### Color Scheme
+Based on church branding (royal blue, gold/yellow, white):
+- **Primary**: Royal Blue (`224 71% 32%`) - Main brand color
+- **Accent/Secondary**: Gold (`43 74% 49%`) - Highlights and CTAs
+- **Background**: White - Clean, welcoming feel
+- **Dark mode**: Fully supported with inverted color scheme
 
-### Data Storage
-- **ORM**: Drizzle ORM with PostgreSQL dialect
-- **Schema Location**: shared/schema.ts (shared between client and server)
-- **Current Storage**: In-memory storage (MemStorage class) as fallback
-- **Database Ready**: PostgreSQL schema defined, requires DATABASE_URL environment variable
-- **Migrations**: Drizzle Kit with migrations output to ./migrations
+### Typography
+- **Font**: Poppins (sans-serif) for modern, friendly feel
+- **Headings**: Bold with accent color highlights
 
-### Key Design Patterns
-- **Monorepo Structure**: Single repo with client/, server/, and shared/ directories
-- **Shared Types**: Schema definitions and types shared between frontend and backend via @shared alias
-- **Component-Based UI**: Modular section components (HeroSection, AboutSection, ServicesSection, etc.)
-- **Single Page Application**: One main route with smooth scroll navigation between sections
+## Key Features
+1. **Smooth Scroll Navigation** - Fixed header with section links
+2. **Responsive Design** - Mobile-first with hamburger menu
+3. **Contact Form** - Validated with react-hook-form and Zod
+4. **Church Calendar** - 10 events for 2026 including anniversary
+5. **Service Schedule** - 5 weekly services with Radio Salvation info
 
-### Project Structure
+## Church Information
+- **Church Name**: Salvation Church of God
+- **Pastor**: Malory Laurent
+- **Address**: 456 Ave N, Brooklyn, NY
+- **Radio**: Radio Salvation (6:00 AM - 12:00 PM for Prayer)
+
+## Running the Project
+```bash
+npm run dev
 ```
-client/src/          # React frontend
-  components/        # UI components and page sections
-  pages/            # Route pages (Home, NotFound)
-  hooks/            # Custom React hooks
-  lib/              # Utilities and query client
-server/             # Express backend
-  routes.ts         # API route definitions
-  storage.ts        # Data storage interface
-shared/             # Shared code between client/server
-  schema.ts         # Drizzle schema and types
-```
-
-## External Dependencies
-
-### Database
-- **PostgreSQL**: Primary database (configured via DATABASE_URL env var)
-- **Drizzle ORM**: Database toolkit for TypeScript
-- **connect-pg-simple**: Session storage for PostgreSQL
-
-### UI Framework
-- **Radix UI**: Headless UI primitives (dialog, dropdown, tabs, etc.)
-- **Tailwind CSS**: Utility-first CSS framework
-- **Lucide React**: Icon library
-- **class-variance-authority**: Component variant management
-
-### Build & Development
-- **Vite**: Frontend build tool and dev server
-- **esbuild**: Server bundling for production
-- **tsx**: TypeScript execution for development
-
-### Form & Validation
-- **Zod**: Schema validation
-- **React Hook Form**: Form state management
-- **drizzle-zod**: Zod schema generation from Drizzle tables
+The server runs on port 5000 and serves both the Express API and the Vite frontend.
