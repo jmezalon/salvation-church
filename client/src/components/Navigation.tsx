@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, X, Cross } from "lucide-react";
@@ -18,6 +18,13 @@ export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [pendingScroll, setPendingScroll] = useState<string | null>(null);
 
+  const scrollToAnchor = useCallback((href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -28,13 +35,14 @@ export function Navigation() {
 
   useEffect(() => {
     if (!isOpen && pendingScroll) {
-      const element = document.querySelector(pendingScroll);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
+      const href = pendingScroll;
       setPendingScroll(null);
+      window.location.hash = href;
+      window.setTimeout(() => {
+        scrollToAnchor(href);
+      }, 80);
     }
-  }, [isOpen, pendingScroll]);
+  }, [isOpen, pendingScroll, scrollToAnchor]);
 
   const handleNavClick = (href: string) => {
     if (isOpen) {
@@ -43,10 +51,7 @@ export function Navigation() {
       return;
     }
 
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    scrollToAnchor(href);
   };
 
   return (
