@@ -27,10 +27,10 @@ export function HeroSection() {
         <img
           src={heroImage}
           alt="Pastor Malory Laurent and his wife welcoming you"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain sm:object-cover object-top sm:object-center bg-primary"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/50" />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/60 to-primary/40 sm:from-primary/90 sm:via-primary/70 sm:to-primary/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent sm:from-primary/80 sm:via-transparent" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
