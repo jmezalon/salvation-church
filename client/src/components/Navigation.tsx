@@ -16,6 +16,7 @@ const navLinks = [
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [pendingScroll, setPendingScroll] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,8 +26,23 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (!isOpen && pendingScroll) {
+      const element = document.querySelector(pendingScroll);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+      setPendingScroll(null);
+    }
+  }, [isOpen, pendingScroll]);
+
   const handleNavClick = (href: string) => {
-    setIsOpen(false);
+    if (isOpen) {
+      setPendingScroll(href);
+      setIsOpen(false);
+      return;
+    }
+
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
